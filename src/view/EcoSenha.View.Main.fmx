@@ -2,7 +2,7 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'EcoSenha'
-  ClientHeight = 196
+  ClientHeight = 216
   ClientWidth = 364
   Position = OwnerFormCenter
   Transparency = True
@@ -14,7 +14,7 @@ object FormMain: TFormMain
   object lytClient: TLayout
     Align = Client
     Size.Width = 364.000000000000000000
-    Size.Height = 196.000000000000000000
+    Size.Height = 216.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object rectClient: TRectangle
@@ -23,9 +23,9 @@ object FormMain: TFormMain
       Padding.Left = 15.000000000000000000
       Padding.Top = 15.000000000000000000
       Padding.Right = 15.000000000000000000
-      Padding.Bottom = 15.000000000000000000
+      Padding.Bottom = 23.000000000000000000
       Size.Width = 364.000000000000000000
-      Size.Height = 196.000000000000000000
+      Size.Height = 216.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
       XRadius = 10.000000000000000000
@@ -211,7 +211,7 @@ object FormMain: TFormMain
         Align = Client
         Padding.Top = 20.000000000000000000
         Size.Width = 334.000000000000000000
-        Size.Height = 117.000000000000000000
+        Size.Height = 129.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object rectSenhaAtual: TRectangle
@@ -237,7 +237,7 @@ object FormMain: TFormMain
           Padding.Bottom = 10.000000000000000000
           Position.Y = 20.000000000000000000
           Size.Width = 162.000000000000000000
-          Size.Height = 97.000000000000000000
+          Size.Height = 109.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 10.000000000000000000
@@ -267,7 +267,7 @@ object FormMain: TFormMain
           object lblSenhaAtual: TSkLabel
             Align = Bottom
             Position.X = 10.000000000000000000
-            Position.Y = 59.000000000000000000
+            Position.Y = 71.000000000000000000
             Size.Width = 142.000000000000000000
             Size.Height = 28.000000000000000000
             Size.PlatformDefault = False
@@ -284,7 +284,7 @@ object FormMain: TFormMain
           object lblPeriodoAtual: TSkLabel
             Align = Bottom
             Position.X = 10.000000000000000000
-            Position.Y = 41.000000000000000000
+            Position.Y = 53.000000000000000000
             Size.Width = 142.000000000000000000
             Size.Height = 18.000000000000000000
             Size.PlatformDefault = False
@@ -329,7 +329,7 @@ object FormMain: TFormMain
           Position.X = 172.000000000000000000
           Position.Y = 20.000000000000000000
           Size.Width = 162.000000000000000000
-          Size.Height = 97.000000000000000000
+          Size.Height = 109.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 10.000000000000000000
@@ -359,7 +359,7 @@ object FormMain: TFormMain
           object lblProximaSenha: TSkLabel
             Align = Bottom
             Position.X = 10.000000000000000000
-            Position.Y = 59.000000000000000000
+            Position.Y = 71.000000000000000000
             Size.Width = 142.000000000000000000
             Size.Height = 28.000000000000000000
             Size.PlatformDefault = False
@@ -375,7 +375,7 @@ object FormMain: TFormMain
           object lblProximoPeriodo: TSkLabel
             Align = Bottom
             Position.X = 10.000000000000000000
-            Position.Y = 41.000000000000000000
+            Position.Y = 53.000000000000000000
             Size.Width = 142.000000000000000000
             Size.Height = 18.000000000000000000
             Size.PlatformDefault = False
