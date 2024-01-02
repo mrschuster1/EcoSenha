@@ -144,7 +144,7 @@ end;
 function TSenha.SenhaAtual: string;
 begin
   Result := 'ECO' + Copy(GetMD5('supervisor_' + FormatDateTime('yyyyMMdd',
-    Now)), 1, 3);
+    InicioPeriodoAtual)), 1, 3);
 end;
 
 end.
