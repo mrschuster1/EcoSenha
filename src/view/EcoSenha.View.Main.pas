@@ -86,12 +86,12 @@ end;
 procedure TFormMain.ClarearClick(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
-  TAnimator.AnimateFloat(Sender as TRectangle, 'Opacity', 0.8, 0.2)
+  TAnimator.AnimateFloat(Sender as TFmxObject, 'Opacity', 0.8, 0.2)
 end;
 
 procedure TFormMain.ClarearMouseLeave(Sender: TObject);
 begin
-  TAnimator.AnimateFloat(Sender as TRectangle, 'Opacity', 1)
+  TAnimator.AnimateFloat(Sender as TFmxObject, 'Opacity', 1)
 end;
 
 procedure TFormMain.CopiarSenha(Senha: TSKLabel);
@@ -111,12 +111,12 @@ end;
 procedure TFormMain.EscurecerClick(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Single);
 begin
-  TAnimator.AnimateFloat(Sender as TRectangle, 'Opacity', 1, 0.2)
+  TAnimator.AnimateFloat(Sender as TFmxObject, 'Opacity', 1, 0.2)
 end;
 
 procedure TFormMain.EscurecerMouseEnter(Sender: TObject);
 begin
-  TAnimator.AnimateFloat(Sender as TRectangle, 'Opacity', 0.8)
+  TAnimator.AnimateFloat(Sender as TFmxObject, 'Opacity', 0.8)
 end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
