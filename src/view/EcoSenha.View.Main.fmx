@@ -2,8 +2,12 @@ object FormMain: TFormMain
   Left = 0
   Top = 0
   Caption = 'EcoSenha'
-  ClientHeight = 216
-  ClientWidth = 364
+  ClientHeight = 236
+  ClientWidth = 384
+  Padding.Left = 10.000000000000000000
+  Padding.Top = 10.000000000000000000
+  Padding.Right = 10.000000000000000000
+  Padding.Bottom = 10.000000000000000000
   Position = OwnerFormCenter
   Transparency = True
   FormFactor.Width = 320
@@ -163,7 +167,7 @@ object FormMain: TFormMain
                 '0 10.888523 10.888523 10 12 10 z"/></svg>'
             end
           end
-          object svgUser: TSkSvg
+          object svgAppIcon: TSkSvg
             Align = Left
             Position.X = 5.000000000000000000
             Position.Y = 8.000000000000000000
@@ -395,6 +399,12 @@ object FormMain: TFormMain
             ShadowColor = xFF9EABD4
           end
         end
+      end
+      object shadowForm: TShadowEffect
+        Distance = 0.100000001490116100
+        Softness = 1.000000000000000000
+        Opacity = 0.200000002980232200
+        ShadowColor = xFF414141
       end
     end
   end

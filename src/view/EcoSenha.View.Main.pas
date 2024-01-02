@@ -35,7 +35,7 @@ type
     lblAppName: TSkLabel;
     btnConfig: TSpeedButton;
     svgConfig: TSkSvg;
-    svgUser: TSkSvg;
+    svgAppIcon: TSkSvg;
     lytPassword: TLayout;
     rectSenhaAtual: TRectangle;
     lblAtual: TSkLabel;
@@ -47,6 +47,7 @@ type
     lblProximaSenha: TSkLabel;
     lblProximoPeriodo: TSkLabel;
     ShadowProximaSenha: TShadowEffect;
+    shadowForm: TShadowEffect;
     procedure EscurecerMouseEnter(Sender: TObject);
     procedure ClarearMouseLeave(Sender: TObject);
     procedure EscurecerClick(Sender: TObject; Button: TMouseButton;
