@@ -1,9 +1,9 @@
-object FormMain: TFormMain
+object FormPeriodo: TFormPeriodo
   Left = 0
   Top = 0
-  Caption = 'EcoSenha'
-  ClientHeight = 320
-  ClientWidth = 396
+  Caption = 'Selecionar data'
+  ClientHeight = 424
+  ClientWidth = 472
   Padding.Left = 10.000000000000000000
   Padding.Top = 10.000000000000000000
   Padding.Right = 10.000000000000000000
@@ -13,13 +13,14 @@ object FormMain: TFormMain
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
-  OnCreate = FormCreate
+  OnClose = FormClose
   OnKeyDown = FormKeyDown
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object lytClient: TLayout
     Align = Client
-    Size.Width = 376.000000000000000000
-    Size.Height = 300.000000000000000000
+    Size.Width = 452.000000000000000000
+    Size.Height = 404.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object rectClient: TRectangle
@@ -29,18 +30,17 @@ object FormMain: TFormMain
       Padding.Top = 15.000000000000000000
       Padding.Right = 15.000000000000000000
       Padding.Bottom = 23.000000000000000000
-      Size.Width = 376.000000000000000000
-      Size.Height = 300.000000000000000000
+      Size.Width = 452.000000000000000000
+      Size.Height = 404.000000000000000000
       Size.PlatformDefault = False
       Stroke.Kind = None
       XRadius = 10.000000000000000000
       YRadius = 10.000000000000000000
-      OnMouseDown = DragMoveForm
       object lytTop: TLayout
         Align = MostTop
         Position.X = 15.000000000000000000
         Position.Y = 15.000000000000000000
-        Size.Width = 346.000000000000000000
+        Size.Width = 422.000000000000000000
         Size.Height = 49.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 2
@@ -52,7 +52,7 @@ object FormMain: TFormMain
           Padding.Top = 8.000000000000000000
           Padding.Right = 5.000000000000000000
           Padding.Bottom = 8.000000000000000000
-          Size.Width = 346.000000000000000000
+          Size.Width = 422.000000000000000000
           Size.Height = 49.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
@@ -65,7 +65,7 @@ object FormMain: TFormMain
             Padding.Top = 6.000000000000000000
             Padding.Right = 6.000000000000000000
             Padding.Bottom = 6.000000000000000000
-            Position.X = 308.000000000000000000
+            Position.X = 384.000000000000000000
             Position.Y = 8.000000000000000000
             Size.Width = 33.000000000000000000
             Size.Height = 33.000000000000000000
@@ -210,253 +210,34 @@ object FormMain: TFormMain
               ', 32.030 52, 31.831 52 C 31.632 52, 26.188 57.294, 19.734 63.765' +
               '" stroke="none" fill="#3d77ec" fill-rule="evenodd"/></svg>'
           end
+          object lblSenha: TSkLabel
+            Align = Right
+            Margins.Right = 5.000000000000000000
+            Padding.Right = 10.000000000000000000
+            Position.X = 321.320007324218800000
+            Position.Y = 8.000000000000000000
+            Size.Width = 57.680000305175780000
+            Size.Height = 33.000000000000000000
+            Size.PlatformDefault = False
+            StyledSettings = []
+            TextSettings.Font.Families = 'lexend'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.Font.Weight = Medium
+            TextSettings.FontColor = xFF3D76F4
+            Words = <
+              item
+                Text = 'Senha: '
+              end>
+          end
         end
       end
-      object lytPassword: TLayout
+      object lytCalendario: TLayout
         Align = Client
         Padding.Top = 20.000000000000000000
-        Size.Width = 346.000000000000000000
-        Size.Height = 213.000000000000000000
+        Size.Width = 422.000000000000000000
+        Size.Height = 181.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
-        object rectSenhaAtual: TRectangle
-          Align = Left
-          Fill.Kind = Gradient
-          Fill.Gradient.Points = <
-            item
-              Color = xFF3A6DF3
-              Offset = 0.000000000000000000
-            end
-            item
-              Color = xFF407DF5
-              Offset = 1.000000000000000000
-            end>
-          Fill.Gradient.StartPosition.X = 0.500000000000000000
-          Fill.Gradient.StartPosition.Y = 1.000000000000000000
-          Fill.Gradient.StopPosition.X = 0.499999970197677600
-          Fill.Gradient.StopPosition.Y = 0.000000000000000000
-          Hint = 'Clique aqui para copiar'
-          Padding.Left = 10.000000000000000000
-          Padding.Top = 10.000000000000000000
-          Padding.Right = 10.000000000000000000
-          Padding.Bottom = 10.000000000000000000
-          Position.Y = 20.000000000000000000
-          Size.Width = 160.000000000000000000
-          Size.Height = 136.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          XRadius = 10.000000000000000000
-          YRadius = 10.000000000000000000
-          OnClick = rectSenhaAtualClick
-          OnMouseDown = EscurecerClick
-          OnMouseUp = ClarearClick
-          OnMouseEnter = EscurecerMouseEnter
-          OnMouseLeave = ClarearMouseLeave
-          object lblAtual: TSkLabel
-            Align = Top
-            Position.X = 10.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 20.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Size = 16.000000000000000000
-            TextSettings.Font.Weight = Medium
-            TextSettings.FontColor = claWhite
-            Words = <
-              item
-                Text = 'Senha atual'
-              end>
-          end
-          object lblSenhaAtual: TSkLabel
-            Align = Bottom
-            Position.X = 10.000000000000000000
-            Position.Y = 98.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 28.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Size = 22.000000000000000000
-            TextSettings.Font.Weight = Medium
-            TextSettings.FontColor = claWhite
-            Words = <
-              item
-                Text = 'Senha'
-              end>
-          end
-          object lblPeriodoAtual: TSkLabel
-            Align = Bottom
-            Position.X = 10.000000000000000000
-            Position.Y = 80.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 18.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Weight = Medium
-            TextSettings.FontColor = claWhite
-            Words = <
-              item
-                Text = 'Per'#237'odo'
-              end>
-          end
-          object shadowSenhaAtual: TShadowEffect
-            Distance = 7.000000000000000000
-            Direction = 90.000000000000000000
-            Softness = 0.699999988079071000
-            Opacity = 0.600000023841857900
-            ShadowColor = xFF1747C7
-          end
-        end
-        object rectProximaSenha: TRectangle
-          Align = Right
-          Fill.Kind = Gradient
-          Fill.Gradient.Points = <
-            item
-              Color = xFFD5DBED
-              Offset = 0.000000000000000000
-            end
-            item
-              Color = xFFF6F7FB
-              Offset = 1.000000000000000000
-            end>
-          Fill.Gradient.StartPosition.X = 0.500000000000000000
-          Fill.Gradient.StartPosition.Y = 1.000000000000000000
-          Fill.Gradient.StopPosition.X = 0.499999970197677600
-          Fill.Gradient.StopPosition.Y = 0.000000000000000000
-          Hint = 'Clique aqui para copiar'
-          Padding.Left = 10.000000000000000000
-          Padding.Top = 10.000000000000000000
-          Padding.Right = 10.000000000000000000
-          Padding.Bottom = 10.000000000000000000
-          Position.X = 186.000000000000000000
-          Position.Y = 20.000000000000000000
-          Size.Width = 160.000000000000000000
-          Size.Height = 136.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          XRadius = 10.000000000000000000
-          YRadius = 10.000000000000000000
-          OnClick = rectProximaSenhaClick
-          OnMouseDown = EscurecerClick
-          OnMouseUp = ClarearClick
-          OnMouseEnter = EscurecerMouseEnter
-          OnMouseLeave = ClarearMouseLeave
-          object lblProximo: TSkLabel
-            Align = Top
-            Position.X = 10.000000000000000000
-            Position.Y = 10.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 20.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Size = 16.000000000000000000
-            TextSettings.Font.Weight = Medium
-            TextSettings.FontColor = xFF656565
-            Words = <
-              item
-                Text = 'Pr'#243'xima senha'
-              end>
-          end
-          object lblProximaSenha: TSkLabel
-            Align = Bottom
-            Position.X = 10.000000000000000000
-            Position.Y = 98.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 28.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Size = 22.000000000000000000
-            TextSettings.Font.Weight = Medium
-            Words = <
-              item
-                Text = 'Senha'
-              end>
-          end
-          object lblProximoPeriodo: TSkLabel
-            Align = Bottom
-            Position.X = 10.000000000000000000
-            Position.Y = 80.000000000000000000
-            Size.Width = 140.000000000000000000
-            Size.Height = 18.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Weight = Medium
-            Words = <
-              item
-                Text = 'Per'#237'odo'
-              end>
-          end
-          object shadowProximaSenha: TShadowEffect
-            Distance = 7.000000000000000000
-            Direction = 90.000000000000000000
-            Softness = 0.699999988079071000
-            Opacity = 1.000000000000000000
-            ShadowColor = xFF9EABD4
-          end
-        end
-        object rectSenhaOutroPeriodo: TRectangle
-          Align = MostBottom
-          Fill.Kind = Gradient
-          Fill.Gradient.Points = <
-            item
-              Color = xFF3A6DF3
-              Offset = 0.000000000000000000
-            end
-            item
-              Color = xFF407DF5
-              Offset = 1.000000000000000000
-            end>
-          Fill.Gradient.StartPosition.X = 0.500000000000000000
-          Fill.Gradient.StartPosition.Y = 1.000000000000000000
-          Fill.Gradient.StopPosition.X = 0.499999970197677600
-          Fill.Gradient.StopPosition.Y = 0.000000000000000000
-          Padding.Left = 10.000000000000000000
-          Padding.Top = 10.000000000000000000
-          Padding.Right = 10.000000000000000000
-          Padding.Bottom = 10.000000000000000000
-          Margins.Top = 20.000000000000000000
-          Position.Y = 176.000000000000000000
-          Size.Width = 346.000000000000000000
-          Size.Height = 37.000000000000000000
-          Size.PlatformDefault = False
-          Stroke.Kind = None
-          XRadius = 10.000000000000000000
-          YRadius = 10.000000000000000000
-          OnClick = rectSenhaOutroPeriodoClick
-          OnMouseDown = EscurecerClick
-          OnMouseUp = ClarearClick
-          OnMouseEnter = EscurecerMouseEnter
-          OnMouseLeave = ClarearMouseLeave
-          object lbltSenhaOutroPeriodo: TSkLabel
-            Align = Client
-            Size.Width = 326.000000000000000000
-            Size.Height = 17.000000000000000000
-            Size.PlatformDefault = False
-            StyledSettings = []
-            TextSettings.Font.Families = 'lexend'
-            TextSettings.Font.Size = 16.000000000000000000
-            TextSettings.Font.Weight = Medium
-            TextSettings.FontColor = claWhite
-            TextSettings.HorzAlign = Center
-            Words = <
-              item
-                Text = 'Visualizar senha de outro per'#237'odo'
-              end>
-          end
-          object shadowSenhaOutroPeriodo: TShadowEffect
-            Distance = 7.000000000000000000
-            Direction = 90.000000000000000000
-            Softness = 0.699999988079071000
-            Opacity = 0.600000023841857900
-            ShadowColor = xFF1747C7
-          end
-        end
       end
       object shadowForm: TShadowEffect
         Distance = 0.100000001490116100
@@ -464,6 +245,216 @@ object FormMain: TFormMain
         Softness = 1.000000000000000000
         Opacity = 0.200000002980232200
         ShadowColor = xFF414141
+      end
+      object layoutNomeMes: TLayout
+        Align = Top
+        Position.X = 15.000000000000000000
+        Position.Y = 64.000000000000000000
+        Size.Width = 422.000000000000000000
+        Size.Height = 42.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object lblNomeMes: TSkLabel
+          Align = Client
+          Padding.Right = 10.000000000000000000
+          Size.Width = 338.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = []
+          TextSettings.Font.Families = 'Lexend'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.Weight = Medium
+          TextSettings.FontColor = xFF3D76F4
+          TextSettings.HorzAlign = Center
+          Words = <
+            item
+              Text = 'M'#234's'
+            end>
+        end
+        object btnNext: TSpeedButton
+          Align = Right
+          StyledSettings = [Family, Size, FontColor]
+          Padding.Left = 10.000000000000000000
+          Padding.Top = 10.000000000000000000
+          Padding.Right = 10.000000000000000000
+          Padding.Bottom = 10.000000000000000000
+          Position.X = 380.000000000000000000
+          Size.Width = 42.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'transparentcirclebuttonstyle'
+          OnClick = btnNextClick
+          object svgNext: TSkSvg
+            Align = Client
+            Size.Width = 22.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" v' +
+              'iewBox="0 0 96 96" version="1.1"><path d="M 37 19.500 C 37 19.77' +
+              '5, 37.225 20, 37.500 20 C 37.775 20, 38 19.775, 38 19.500 C 38 1' +
+              '9.225, 37.775 19, 37.500 19 C 37.225 19, 37 19.225, 37 19.500 M ' +
+              '37 76.500 C 37 76.775, 37.225 77, 37.500 77 C 37.775 77, 38 76.7' +
+              '75, 38 76.500 C 38 76.225, 37.775 76, 37.500 76 C 37.225 76, 37 ' +
+              '76.225, 37 76.500" stroke="none" fill="#4074f4" fill-rule="eveno' +
+              'dd"/><path d="M 39.574 13.918 C 36.342 17.490, 37.363 20.511, 46' +
+              '.375 34.040 C 51.119 41.161, 55 47.443, 55 48 C 55 48.557, 51.11' +
+              '9 54.839, 46.375 61.960 C 41.118 69.852, 37.750 75.915, 37.750 7' +
+              '7.487 C 37.750 81.509, 40.762 84.150, 44.949 83.799 C 48.342 83.' +
+              '513, 49.001 82.752, 59.750 66.712 C 65.938 57.479, 71 49.059, 71' +
+              ' 48 C 71 46.941, 65.938 38.521, 59.750 29.288 C 49.001 13.248, 4' +
+              '8.342 12.487, 44.949 12.201 C 42.394 11.987, 40.886 12.468, 39.5' +
+              '74 13.918" stroke="none" fill="#3c74f4" fill-rule="evenodd"/></s' +
+              'vg>'
+          end
+        end
+        object btnPrev: TSpeedButton
+          Align = Left
+          StyledSettings = [Family, Size, FontColor]
+          Padding.Left = 10.000000000000000000
+          Padding.Top = 10.000000000000000000
+          Padding.Right = 10.000000000000000000
+          Padding.Bottom = 10.000000000000000000
+          Size.Width = 42.000000000000000000
+          Size.Height = 42.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'transparentcirclebuttonstyle'
+          OnClick = btnPrevClick
+          object svgPrev: TSkSvg
+            Align = Client
+            Size.Width = 22.000000000000000000
+            Size.Height = 22.000000000000000000
+            Size.PlatformDefault = False
+            Svg.Source = 
+              '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" v' +
+              'iewBox="0 0 96 96" version="1.1"><path d="" stroke="none" fill="' +
+              '#4074f4" fill-rule="evenodd"/><path d="M 50.772 13.750 C 46.906 ' +
+              '18.147, 29 46.342, 29 48.031 C 29 49.073, 34.063 57.479, 40.250 ' +
+              '66.712 C 50.999 82.752, 51.658 83.513, 55.051 83.799 C 57.497 84' +
+              '.004, 59.094 83.537, 60.183 82.299 C 63.848 78.128, 63.437 76.81' +
+              '3, 54.029 62.599 C 49.063 55.096, 45 48.526, 45 48 C 45 47.474, ' +
+              '49.063 40.904, 54.029 33.401 C 63.416 19.219, 63.843 17.868, 60.' +
+              '227 13.750 C 59.366 12.770, 57.286 12, 55.500 12 C 53.715 12, 51' +
+              '.633 12.771, 50.772 13.750" stroke="none" fill="#3c74f4" fill-ru' +
+              'le="evenodd"/></svg>'
+          end
+        end
+      end
+      object rectSenhaOutroPeriodo: TRectangle
+        Align = MostBottom
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFF3A6DF3
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = xFF407DF5
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StartPosition.Y = 1.000000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Fill.Gradient.StopPosition.Y = 0.000000000000000000
+        Padding.Left = 10.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 10.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 297.000000000000000000
+        Size.Width = 422.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        OnClick = rectSenhaOutroPeriodoClick
+        OnMouseDown = EscurecerClick
+        OnMouseUp = ClarearClick
+        OnMouseEnter = EscurecerMouseEnter
+        OnMouseLeave = ClarearMouseLeave
+        object lblConfirmar: TSkLabel
+          Align = Client
+          Size.Width = 402.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = []
+          TextSettings.Font.Families = 'lexend'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.Weight = Medium
+          TextSettings.FontColor = claWhite
+          TextSettings.HorzAlign = Center
+          Words = <
+            item
+              Text = 'Confirmar'
+            end>
+        end
+        object shadowSenhaOutroPeriodo: TShadowEffect
+          Distance = 7.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.699999988079071000
+          Opacity = 0.600000023841857900
+          ShadowColor = xFF1747C7
+        end
+      end
+      object rectHoje: TRectangle
+        Align = MostBottom
+        Fill.Kind = Gradient
+        Fill.Gradient.Points = <
+          item
+            Color = xFFD5DBED
+            Offset = 0.000000000000000000
+          end
+          item
+            Color = xFFF6F7FB
+            Offset = 1.000000000000000000
+          end>
+        Fill.Gradient.StartPosition.X = 0.500000000000000000
+        Fill.Gradient.StartPosition.Y = 1.000000000000000000
+        Fill.Gradient.StopPosition.X = 0.499999970197677600
+        Fill.Gradient.StopPosition.Y = 0.000000000000000000
+        Padding.Left = 10.000000000000000000
+        Padding.Top = 10.000000000000000000
+        Padding.Right = 10.000000000000000000
+        Padding.Bottom = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Position.X = 15.000000000000000000
+        Position.Y = 344.000000000000000000
+        Size.Width = 422.000000000000000000
+        Size.Height = 37.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        OnClick = rectHojeClick
+        OnMouseDown = EscurecerClick
+        OnMouseUp = ClarearClick
+        OnMouseEnter = EscurecerMouseEnter
+        OnMouseLeave = ClarearMouseLeave
+        object lblHoje: TSkLabel
+          Align = Client
+          Size.Width = 402.000000000000000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = []
+          TextSettings.Font.Families = 'lexend'
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.Font.Weight = Medium
+          TextSettings.FontColor = xFF3D76F4
+          TextSettings.HorzAlign = Center
+          Words = <
+            item
+              Text = 'Hoje'
+            end>
+        end
+        object ShadowEffect1: TShadowEffect
+          Distance = 7.000000000000000000
+          Direction = 90.000000000000000000
+          Softness = 0.699999988079071000
+          Opacity = 0.600000023841857900
+          ShadowColor = xFF1747C7
+        end
       end
     end
   end

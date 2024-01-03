@@ -16,6 +16,8 @@ type
   ISenha = interface
     ['{9EF2FB47-5265-414B-BD18-E978E7E9E73F}']
 
+    function Data(aData: TDateTime): ISenha;
+
     /// <summary>
     /// Obtém a senha atual para o período ativo.
     /// </summary>
@@ -53,16 +55,19 @@ type
   /// </summary>
   TSenha = class(TInterfacedObject, ISenha)
   private
+    FData: TDateTime;
     /// <summary>
     /// Calcula o hash MD5 do valor de string fornecido.
     /// </summary>
     class function GetMD5(const AValue: string): string;
-
+    constructor Create; reintroduce;
   public
     /// <summary>
     /// Cria uma nova instância de ISenha.
     /// </summary>
     class function New: ISenha;
+
+    function Data(aData: TDateTime): ISenha;
 
     /// <inheritdoc/>
     function SenhaAtual: string;
@@ -87,20 +92,32 @@ implementation
 
 { TSenha }
 
+constructor TSenha.Create;
+begin
+  inherited Create;
+  FData := Now;
+end;
+
+function TSenha.Data(aData: TDateTime): ISenha;
+begin
+  FData := aData;
+  Result := Self;
+end;
+
 function TSenha.FimPeriodoAtual: TDateTime;
 begin
-  if DayOfTheMonth(Now) <= 15 then
-    Result := (IncDay(StartOfTheMonth(Now), 15)) - OneHour
+  if DayOfTheMonth(FData) <= 15 then
+    Result := (IncDay(StartOfTheMonth(FData), 15)) - OneHour
   else
-    Result := EndOfTheMonth(Now);
+    Result := EndOfTheMonth(FData);
 end;
 
 function TSenha.FimProximoPeriodo: TDateTime;
 begin
-  if DayOfTheMonth(Now) <= 15 then
-    Result := EndOfTheMonth(Now)
+  if DayOfTheMonth(FData) <= 15 then
+    Result := EndOfTheMonth(FData)
   else
-    Result := IncDay(StartOfTheMonth(IncMonth(Now)), 15);
+    Result := IncDay(StartOfTheMonth(IncMonth(FData)), 15);
 end;
 
 class function TSenha.GetMD5(const AValue: string): string;
@@ -116,18 +133,18 @@ end;
 
 function TSenha.InicioPeriodoAtual: TDateTime;
 begin
-  if DayOfTheMonth(Now) <= 15 then
-    Result := StartOfTheMonth(Now)
+  if DayOfTheMonth(FData) <= 15 then
+    Result := StartOfTheMonth(FData)
   else
-    Result := IncDay(StartOfTheMonth(Now), 15);
+    Result := IncDay(StartOfTheMonth(FData), 15);
 end;
 
 function TSenha.InicioProximoPeriodo: TDateTime;
 begin
-  if DayOfTheMonth(Now) <= 15 then
-    Result := (IncDay(EndOfTheMonth(Now), -16)) + OneSecond
+  if DayOfTheMonth(FData) <= 15 then
+    Result := (IncDay(EndOfTheMonth(FData), -16)) + OneSecond
   else
-    Result := StartOfTheMonth(IncMonth(Now));
+    Result := StartOfTheMonth(IncMonth(FData));
 end;
 
 class function TSenha.New: ISenha;

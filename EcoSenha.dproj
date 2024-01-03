@@ -190,8 +190,8 @@
         <VerInfo_Locale>1046</VerInfo_Locale>
         <Icon_MainIcon>Senha.ico</Icon_MainIcon>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
-        <VerInfo_Keys>CompanyName=Thiago Schuster;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.2;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
-        <VerInfo_Build>2</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=Thiago Schuster;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.4;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>4</VerInfo_Build>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -205,6 +205,11 @@
             <FormType>fmx</FormType>
         </DCCReference>
         <DCCReference Include="src\controller\EcoSenha.Controller.Senha.pas"/>
+        <DCCReference Include="src\view\EcoSenha.View.Periodo.pas">
+            <Form>FormPeriodo</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="src\components\EcoSenha.Components.CustomCalendar.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -407,6 +412,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="bin\EcoSenha.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>EcoSenha.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="bin\EcoSenha.exe" Configuration="Release" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>EcoSenha.exe</RemoteName>
                         <Overwrite>true</Overwrite>

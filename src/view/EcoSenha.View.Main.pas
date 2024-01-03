@@ -41,13 +41,16 @@ type
     lblAtual: TSkLabel;
     lblSenhaAtual: TSkLabel;
     lblPeriodoAtual: TSkLabel;
-    ShadowSenhaAtual: TShadowEffect;
+    shadowSenhaAtual: TShadowEffect;
     rectProximaSenha: TRectangle;
     lblProximo: TSkLabel;
     lblProximaSenha: TSkLabel;
     lblProximoPeriodo: TSkLabel;
-    ShadowProximaSenha: TShadowEffect;
+    shadowProximaSenha: TShadowEffect;
     shadowForm: TShadowEffect;
+    rectSenhaOutroPeriodo: TRectangle;
+    lbltSenhaOutroPeriodo: TSkLabel;
+    shadowSenhaOutroPeriodo: TShadowEffect;
     procedure EscurecerMouseEnter(Sender: TObject);
     procedure ClarearMouseLeave(Sender: TObject);
     procedure EscurecerClick(Sender: TObject; Button: TMouseButton;
@@ -60,8 +63,11 @@ type
     procedure FormCreate(Sender: TObject);
     procedure rectSenhaAtualClick(Sender: TObject);
     procedure rectProximaSenhaClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
+      Shift: TShiftState);
+    procedure rectSenhaOutroPeriodoClick(Sender: TObject);
   private
-    procedure CopiarSenha(Senha: TSKLabel);
+    procedure CopiarSenha(Senha: TSkLabel);
   public
 
   end;
@@ -75,7 +81,8 @@ implementation
 
 
 uses
-  EcoSenha.Controller.Senha;
+  EcoSenha.Controller.Senha,
+  EcoSenha.View.Periodo;
 
 { TFormMain }
 
@@ -95,7 +102,7 @@ begin
   TAnimator.AnimateFloat(Sender as TFmxObject, 'Opacity', 1)
 end;
 
-procedure TFormMain.CopiarSenha(Senha: TSKLabel);
+procedure TFormMain.CopiarSenha(Senha: TSkLabel);
 begin
   var
   ClipboardService := IFMXClipboardService
@@ -138,6 +145,13 @@ begin
 
 end;
 
+procedure TFormMain.FormKeyDown(Sender: TObject; var Key: Word;
+  var KeyChar: Char; Shift: TShiftState);
+begin
+  if Key = vkEscape then
+    Close
+end;
+
 procedure TFormMain.rectProximaSenhaClick(Sender: TObject);
 begin
   CopiarSenha(lblProximaSenha);
@@ -146,6 +160,17 @@ end;
 procedure TFormMain.rectSenhaAtualClick(Sender: TObject);
 begin
   CopiarSenha(lblSenhaAtual);
+end;
+
+procedure TFormMain.rectSenhaOutroPeriodoClick(Sender: TObject);
+begin
+  var
+  lFormPeriodo := TFormPeriodo.Create(Self);
+  try
+    lFormPeriodo.ShowModal
+  finally
+    lFormPeriodo.Free;
+  end;
 end;
 
 end.
