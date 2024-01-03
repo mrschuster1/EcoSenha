@@ -59,7 +59,7 @@ object FormPeriodo: TFormPeriodo
           XRadius = 10.000000000000000000
           YRadius = 10.000000000000000000
           object btnClose: TSpeedButton
-            Align = Right
+            Align = MostRight
             StyledSettings = [Family, Size, FontColor]
             Padding.Left = 6.000000000000000000
             Padding.Top = 6.000000000000000000

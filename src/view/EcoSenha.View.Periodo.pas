@@ -106,7 +106,6 @@ procedure TFormPeriodo.AtualizarSenha;
 begin
   lblSenha.Text := 'Senha: ' + TSenha.New.Data(Calendario.SelectedDate)
     .SenhaAtual;
-  lblSenha.Position.X := 0;
 end;
 
 procedure TFormPeriodo.CriarCalendario;
